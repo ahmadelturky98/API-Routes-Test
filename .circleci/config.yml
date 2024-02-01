@@ -8,9 +8,6 @@ jobs:
       - image: circleci/node:20.11.0
     steps:
       - run: npm run dev
-    build:
-      docker:
-        - image: circleci/node:20.11.0
-      steps:
-        - run: npm test
+      - run: npm test
+        
           
