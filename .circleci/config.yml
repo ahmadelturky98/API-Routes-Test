@@ -9,7 +9,13 @@ jobs:
     steps:
       - checkout
       - run: npm run dev
-      - run: npm test
+      
+        docker:
+          - image: cimg/node:20.11.0
+        steps:
+          - checkout
+          - run: npm test
+      
 
 
   
