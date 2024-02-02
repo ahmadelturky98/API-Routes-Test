@@ -8,8 +8,10 @@ jobs:
       - image: cimg/node:20.11.0
     steps:
       - checkout
-      - run: npm run dev
-      - run: npm test
+      - run:
+          command: npm run dev
+      - run:
+          command: npm test
       
 
 
