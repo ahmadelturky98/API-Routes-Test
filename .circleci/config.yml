@@ -9,11 +9,20 @@ jobs:
     parallelism: 4
     resource_class: large
     steps:
+      - run: mkdir ~/junit
       - checkout
-      - run: go list ./... | circleci tests run --command "xargs gotestsum --junitfile junit.xml --format testname --" --split-by=timings --timings-type=name
-      - run: npm run dev
-      - run: npm test
-      
+      - run: TEST=$(circleci tests glob "src/__tests__/*.js" | circleci tests split --split-by=timings)
+      - run: npm run dev $TEST
+      - run: npm test $TEST
+      - run:
+          command: cp junit.xml ~/junit/ 
+          when: always
+      - store_test_results:
+          path: ~/junit
+
+
+   
+
 
 
   
