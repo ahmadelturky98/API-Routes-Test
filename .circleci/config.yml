@@ -8,6 +8,10 @@ jobs:
       - image: cimg/node:20.11.0
     steps:
       - checkout
+      - command: |
+            echo 'export PATH=/path/to/foo/bin:"$PATH"' >> "$BASH_ENV"
+            echo "export VERY_IMPORTANT=VALUE_CONTENT" >> "$BASH_ENV"
+            source "$BASH_ENV
       - run:
           command: npm run dev
       - run:
