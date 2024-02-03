@@ -6,13 +6,12 @@ jobs:
   build:
     docker:
       - image: cimg/node:20.11.0
-    parallelism: 4
-    resource_class: large
+     environment:
+          DATABASE_URL: http://localhost:3000
     steps:
-      - run: mkdir ~/junit
       - checkout
-      - run: TEST=$(circleci tests glob "src/__tests__/*.js" | circleci tests split --split-by=timings)
       - run: npm test
+   
 
 
    
