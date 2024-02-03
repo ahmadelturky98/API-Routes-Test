@@ -12,13 +12,7 @@ jobs:
       - run: mkdir ~/junit
       - checkout
       - run: TEST=$(circleci tests glob "src/__tests__/*.js" | circleci tests split --split-by=timings)
-      - run: npm run dev
       - run: npm test $TEST
-      - run:
-          command: cp junit.xml ~/junit/ 
-          when: always
-      - store_test_results:
-          path: ~/junit
 
 
    
