@@ -6,11 +6,14 @@ jobs:
   build:
     docker:
       - image: cimg/node:20.11.0
-    environment:
-        DATABASE_URL: http://localhost:3000
+    
     steps:
       - checkout
-      - run: npm test
+      - run: 
+          command: npm test
+          environment:
+            DATABASE_URL: http://localhost:3000
+      
    
 
 
