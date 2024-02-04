@@ -13,6 +13,9 @@ jobs: # basic units of work in a run
           name: "Setup custom environment variables"
           command: echo 'export MY_ENV_VAR="FOO"' >> "$BASH_ENV"
       - run: npm run dev
+      - run: # print the name of the branch we're on
+          name: "What branch am I on?"
+          command: echo ${CIRCLE_BRANCH}
       
    
 
