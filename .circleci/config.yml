@@ -1,19 +1,17 @@
-# Couldn't automatically generate a config from your source code.
-# This is a generic template to serve as a base for your custom config
-# See: https://circleci.com/docs/configuration-reference
 version: 2.1
-jobs:
+
+jobs: # basic units of work in a run
   build:
-    docker:
+    docker: # use the Docker executor
+      # CircleCI Node images available at: https://circleci.com/developer/images/image/cimg/node
       - image: cimg/node:20.11.0
-    
-    steps:
-      - checkout
-      - run: 
-          name: "Setup custom variable"
-          comand: |
-            echo 'export MY_ENV_VAR="FOO"' >> "$BASH_ENV"
-            npm run dev
+    steps: # steps that comprise the `build` job
+      - checkout # check out source code to working directory
+      # Run a step to setup an environment variable
+      # Redirect MY_ENV_VAR into $BASH_ENV
+      - run:
+          name: "Setup custom environment variables"
+          command: echo 'export MY_ENV_VAR="FOO"' >> "$BASH_ENV"
 
       
    
