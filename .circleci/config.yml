@@ -9,9 +9,7 @@ jobs:
     
     steps:
       - checkout
-      - run: 
-          environment:
-            DATABASE_URL: http://localhost:3000
+
       
    
 
