@@ -12,7 +12,7 @@ jobs: # basic units of work in a run
       - run:
           name: "Setup custom environment variables"
           command: echo 'export MY_ENV_VAR="FOO"' >> "$BASH_ENV"
-     -run: npm run dev
+     - run: npm run dev
       
    
 
