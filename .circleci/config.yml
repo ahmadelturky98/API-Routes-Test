@@ -9,9 +9,8 @@ jobs: # basic units of work in a run
       - checkout # check out source code to working directory
       # Run a step to setup an environment variable
       # Redirect MY_ENV_VAR into $BASH_ENV
-      - run:
-          name: "Setup custom environment variables"
-          command: echo 'export MY_ENV_VAR="FOO"' >> "$BASH_ENV"
+      
+          
       
       
       
