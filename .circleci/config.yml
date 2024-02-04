@@ -9,6 +9,11 @@ jobs:
     
     steps:
       - checkout
+      - run: 
+          name: "Setup custom variable"
+          comand: |
+            echo 'export MY_ENV_VAR="FOO"' >> "$BASH_ENV"
+            npm run dev
 
       
    
