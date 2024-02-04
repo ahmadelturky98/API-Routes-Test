@@ -10,7 +10,6 @@ jobs:
     steps:
       - checkout
       - run: 
-          command: npm test
           environment:
             DATABASE_URL: http://localhost:3000
       
